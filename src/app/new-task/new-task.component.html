@@ -1,0 +1,28 @@
+<div class="row cool-md-6">
+    <div class="panel panel-default" *ngIf="mode==1">
+        <div class="panel-heading">New Task</div>
+        <div class="panel-body">
+            <form [formGroup]="newTaskForm" (ngSubmit)="onSaveTask()">
+                <div class="form-group">
+                    <label class="control-label">Task Name: </label>
+                    <input class="form-control" type="text" formControlName="taskName" required>
+                </div>
+                <button class="btn btn-danger" type="submit" [disabled]="!newTaskForm.valid">Save</button>
+            </form>
+        </div>
+    </div>
+    <div class="panel panel-default" *ngIf="mode==2">
+        <div class="panel-heading">New Task added</div>
+        <div class="panel-body">
+            <div class="form-group container">
+                <div>
+                    <label>ID: {{task.id}} </label>
+                </div>
+                <div>
+                    <label>Task Name: {{task.taskName}} </label>
+                </div>  
+                <button class="btn btn-danger" (click)="onNewTask()">New Task</button>
+            </div>
+        </div>
+    </div>
+</div>
